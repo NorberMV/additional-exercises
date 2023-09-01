@@ -8,19 +8,19 @@ class Program
 
         
         Console.WriteLine("\n\n1 - Calculadora area Triángulo Rectángulo ***");
-        float areaTriangulo = CalcularAreaTriangulo();
+        double areaTriangulo = CalcularAreaTriangulo();
         Console.WriteLine("\n\n2 - Calculadora area Cuadrado ***");
-        float areaCuadrado = CalcularAreaCuadrado();
+        double areaCuadrado = CalcularAreaCuadrado();
         Console.WriteLine("\n\n3 - Calculadora area Círculo ***");
-        float areaCirculo = CalcularAreaCirculo();
+        double areaCirculo = CalcularAreaCirculo();
 
         MaxArea(areaTriangulo, areaCuadrado, areaCirculo);
 
     }
 
-    static void MaxArea(float areaTriangulo, float areaCuadrado, float areaCirculo) {
+    static void MaxArea(double areaTriangulo, double areaCuadrado, double areaCirculo) {
         // write the logic
-        float maxArea = areaTriangulo;
+        double maxArea = areaTriangulo;
         string figura;
 
         if (areaTriangulo >= areaCuadrado && areaTriangulo >= areaCirculo) {
@@ -37,18 +37,18 @@ class Program
             figura = "Circulo";
         }
 
-        Console.WriteLine($"El mayor area es la del {figura}: {maxArea} m2");
+        Console.WriteLine($"\n\nLa mayor area de todas las figuras es la del {figura}: {maxArea:F3} m2");
 
     }
 
 
 
-    static float CalcularAreaTriangulo()
+    static double CalcularAreaTriangulo()
     {
-        Console.WriteLine("Ingrese la base del triángulo en [m]: ");
+        Console.Write("Ingrese la base del triángulo en [m]: ");
         double baseTriangulo = double.Parse(Console.ReadLine());
 
-        Console.WriteLine("Ingrese la altura del triángulo en [m]: ");
+        Console.Write("Ingrese la altura del triángulo en [m]: ");
         double alturaTriangulo = double.Parse(Console.ReadLine());
 
         double areaTriangulo = (baseTriangulo * alturaTriangulo) / 2;
@@ -56,23 +56,23 @@ class Program
         return areaTriangulo;
     }
 
-    static float CalcularAreaCuadrado()
+    static double CalcularAreaCuadrado()
     {
-        Console.WriteLine("Ingrese la medida del lado del cuadrado:");
+        Console.Write("Ingrese la medida del lado del cuadrado en [m] : ");
         double ladoCuadrado = double.Parse(Console.ReadLine());
 
         double areaCuadrado = ladoCuadrado * ladoCuadrado;
-        Console.WriteLine($"El área del cuadrado es: {areaCuadrado}");
+        Console.WriteLine($"El área del cuadrado es: {areaCuadrado} m^2");
         return areaCuadrado;
     }
 
-    static float CalcularAreaCirculo()
+    static double CalcularAreaCirculo()
     {
-        Console.WriteLine("Ingrese el radio del círculo:");
+        Console.Write("Ingrese el radio del círculo en [m]: ");
         double radioCirculo = double.Parse(Console.ReadLine());
 
         double areaCirculo = Math.PI * Math.Pow(radioCirculo, 2);
-        Console.WriteLine($"El área del círculo es: {areaCirculo}");
+        Console.WriteLine($"El área del círculo es: {areaCirculo:F3} m^2");
         return areaCirculo;
     }
 }
